@@ -7,8 +7,8 @@ class MyInt(int):
 
     def __eq__(self, other):
         """Inverting the == operator"""
-        return (int.__eq__(self, other))
+        return (int.__ne__(self, other))
 
     def __ne__(self, other):
         """Inverting the != operator"""
-        return (int.__ne__(self, other))
+        return (int.__eq__(self, other))
