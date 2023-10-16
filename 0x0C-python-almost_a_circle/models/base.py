@@ -60,7 +60,7 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """ Returns a list of instances """
-        filename = cls.__name__ + ".json"
+        filename = str(cls.__name__) + ".json"
         if filename:
             with open(filename, 'r') as file:
                 list_dicts = Base.from_json_string(file.read())
