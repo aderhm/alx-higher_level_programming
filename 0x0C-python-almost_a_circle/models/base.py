@@ -84,7 +84,7 @@ class Base:
                 writer = csv.DictWriter(file, fieldnames=fields)
                 for o in list_objs:
                     writer.writerow(o.to_dictionary())
-    
+
     @classmethod
     def load_from_file_csv(cls):
         """ Deserializes in CSV """
