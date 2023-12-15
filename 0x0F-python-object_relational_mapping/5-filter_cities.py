@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""""""
+"""This script lists all cities of a state"""
 import sys
 import MySQLdb
 
@@ -14,10 +14,10 @@ if __name__ == "__main__":
     cur = db.cursor()
     qr = " ".join([
         "SELECT cities.name FROM cities WHERE cities.state_id = (",
-        "SELECT states.id FROM states WHERE states.name=%(name)s)",
+        "SELECT states.id FROM states WHERE states.name LIKE BINARY '{}')",
         "GROUP BY cities.id"
-    ])
-    cur.execute(qr, {'name': sys.argv[4]})
+    ]).format(sys.argv[4])
+    cur.execute(qr)
     rows = cur.fetchall()
     print(', '.join([i[0] for i in rows]))
     cur.close()
