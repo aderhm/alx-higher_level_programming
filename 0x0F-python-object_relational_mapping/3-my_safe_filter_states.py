@@ -16,10 +16,10 @@ if __name__ == "__main__":
     cur = db.cursor()
     qr = " ".join([
         "SELECT * FROM states",
-        "WHERE states.name=%(name)s",
+        "WHERE states.name=%s",
         "ORDER BY states.id"
     ])
-    cur.execute(qr, {'name': sys.argv[4]})
+    cur.execute(qr, (sys.argv[4]))
     rows = cur.fetchall()
     for row in rows:
         print(row)
