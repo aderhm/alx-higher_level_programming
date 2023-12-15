@@ -16,9 +16,9 @@ if __name__ == "__main__":
     cur = db.cursor()
     qr = " ".join([
         "SELECT * FROM states",
-        "WHERE states.name = '{}'",
+        "WHERE states.name = '{}'".format(sys.argv[4]),
         "ORDER BY states.id"
-    ]).format(sys.argv[4])
+    ])
     cur.execute(qr)
     rows = cur.fetchall()
     for row in rows:
