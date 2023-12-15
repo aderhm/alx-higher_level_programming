@@ -16,10 +16,10 @@ if __name__ == "__main__":
     cur = db.cursor()
     qr = " ".join([
         "SELECT * FROM states",
-        "WHERE states.name LIKE BINARY ?",
+        "WHERE states.name LIKE BINARY '%s'",
         "ORDER BY states.id"
     ])
-    cur.exercute(qr, sys.argv[4])
+    cur.exercute(qr, (sys.argv[4]))
     rows = cur.fetchall()
     for row in rows:
         print(row)
