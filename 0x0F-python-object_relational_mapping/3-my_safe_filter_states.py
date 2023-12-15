@@ -19,7 +19,7 @@ if __name__ == "__main__":
         "WHERE states.name=%(name)s",
         "ORDER BY states.id"
     ])
-    cur.exercute(qr, {'name': sys.argv[4]})
+    cur.execute(qr, {'name': sys.argv[4]})
     rows = cur.fetchall()
     for row in rows:
         print(row)
