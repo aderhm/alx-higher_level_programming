@@ -14,12 +14,12 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
     cur = db.cursor()
-    qr = f" ".join([
+    qr = " ".join([
         "SELECT * FROM states",
         "WHERE states.name LIKE BINARY %s",
         "ORDER BY states.id"
     ])
-    cur.exercute(qr, (sys.argv[4]))
+    cur.exercute(qr, (sys.argv[4], ))
     rows = cur.fetchall()
     for row in rows:
         print(row)
