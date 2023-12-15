@@ -4,6 +4,7 @@ if __name__ == "__main__":
     import MySQLdb
 
     db = MySQLdb.connect(
+        port=3306,
         host="localhost",
         user=sys.argv[1],
         passwd=sys.argv[2],
@@ -23,3 +24,4 @@ if __name__ == "__main__":
     for row in rows:
         print(row)
     cur.close()
+    db.close()
