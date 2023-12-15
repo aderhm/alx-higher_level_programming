@@ -14,8 +14,12 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
     cur = db.cursor()
-    qr = "SELECT * FROM states WHERE states.name = '{}' ORDER BY states.id"
-    cur.execute(qr.format(sys.argv[4]))
+    qr = " ".join([
+        "SELECT * FROM states",
+        "WHERE states.name = '{}'",
+        "ORDER BY states.id"
+    ]).format(sys.argv[4])
+    cur.execute(qr)
     rows = cur.fetchall()
     for row in rows:
         print(row)
