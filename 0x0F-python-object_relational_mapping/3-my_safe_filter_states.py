@@ -14,7 +14,7 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
     cur = db.cursor()
-    qr = " ".join([
+    qr = f" ".join([
         "SELECT * FROM states",
         "WHERE states.name LIKE BINARY %s",
         "ORDER BY states.id"
