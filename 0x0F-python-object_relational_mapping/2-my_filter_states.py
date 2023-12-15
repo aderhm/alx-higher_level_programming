@@ -1,25 +1,22 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-    import sys
-    import MySQLdb
+"""This script lists all states from the database hbtn_0e_0_usa
+where name matches the argument
+"""
+import sys
+import MySQLdb
 
+if __name__ == "__main__":
     db = MySQLdb.connect(
-        port=3306,
         host="localhost",
+        port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
     cur = db.cursor()
     qr = "SELECT * FROM states WHERE states.name = '{}' ORDER BY states.id"
-    try:
-        cur.execute(qr.format(sys.argv[4]))
-        rows = cur.fetchall()
-    except MySQLdb.Error as e:
-        try:
-            print("MySQL Error [%d]: %s" % (e.args[0], e.args[1]))
-        except IndexError:
-            print("MySQL Error: %s" % str(e))
+    cur.execute(qr.format(sys.argv[4]))
+    rows = cur.fetchall()
     for row in rows:
         print(row)
     cur.close()
