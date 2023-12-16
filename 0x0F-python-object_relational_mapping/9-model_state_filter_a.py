@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""""""
+"""This script lists all state that contains 'a'
+in the db via SQLAlchmey"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
