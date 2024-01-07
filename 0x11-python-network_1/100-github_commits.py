@@ -12,8 +12,11 @@ if __name__ == '__main__':
     owner = sys.argv[2]
     res = requests.get(f'https://api.github.com/repos/{owner}/{repo}/commits')
     commits = res.json()
-    for i in range(10):
-        print("{}: {}".format(
-            commits[i].get('sha'),
-            commits[i].get('commit').get('author').get('name')
-        ))
+    try:
+        for i in range(10):
+            print("{}: {}".format(
+                commits[i].get('sha'),
+                commits[i].get('commit').get('author').get('name')
+            ))
+    except IndexError:
+        print("Out of range!")
