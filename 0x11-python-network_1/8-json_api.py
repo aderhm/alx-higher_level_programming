@@ -8,12 +8,13 @@ import requests
 
 
 if __name__ == '__main__':
-    q = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1].isalpha() else ""
-    req = requests.post('http://0.0.0.0:5000/search_user', data=q)
+    q = sys.argv[1] if len(sys.argv) == 1 and sys.argv[1].isalpha() else ""
+    payload = {'q': q}
+    res = requests.post('http://0.0.0.0:5000/search_user', data=payload)
     try:
-        json_formatted_req = req.json()
-        if req.json():
-            print("[{}] {}".format(req['id'], req['name']))
+        json_formatted_res = res.json()
+        if json_formatted_res:
+            print("[{}] {}".format(res.get('id'), res.get('name')))
         else:
             print("No result")
     except ValueError:
