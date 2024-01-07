@@ -8,8 +8,8 @@ import requests
 
 
 if __name__ == '__main__':
-    q = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1].isalpha() else ""
-    payload = {'q': q}
+    letter = sys.argv[1] if len(sys.argv) > 1 else ""
+    payload = {'q': letter}
     res = requests.post('http://0.0.0.0:5000/search_user', data=payload)
     try:
         json_formatted_res = res.json()
