@@ -8,7 +8,7 @@ import requests
 
 
 if __name__ == '__main__':
-    q = sys.argv[1] if len(sys.argv) == 1 and sys.argv[1].isalpha() else ""
+    q = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1].isalpha() else ""
     payload = {'q': q}
     res = requests.post('http://0.0.0.0:5000/search_user', data=payload)
     try:
