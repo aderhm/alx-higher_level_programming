@@ -14,7 +14,8 @@ if __name__ == '__main__':
     try:
         json_formatted_res = res.json()
         if json_formatted_res:
-            print("[{}] {}".format(res.get('id'), res.get('name')))
+            print("[{}] {}".format(json_formatted_res.get('id'),
+                                   json_formatted_res.get('name')))
         else:
             print("No result")
     except ValueError:
