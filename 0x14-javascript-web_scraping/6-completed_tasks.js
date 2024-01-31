@@ -9,7 +9,7 @@ request(process.argv[2], (error, response, body) => {
         if (result[resData[i].userId] === undefined) {
           result[resData[i].userId] = 0;
 	}
-        result[resData[i].userId]++;
+        result[resData[i].userId] += 1;
       }
     }
     console.log(result);
