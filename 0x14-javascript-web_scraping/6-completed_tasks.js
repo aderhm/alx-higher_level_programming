@@ -8,7 +8,7 @@ request(process.argv[2], (error, response, body) => {
       if (resData[i].completed === true) {
         if (!(resData[i].userId in result)) {
           result[resData[i].userId] = 0;
-	}
+	      }
         result[resData[i].userId] += 1;
       }
     }
