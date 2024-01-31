@@ -6,7 +6,7 @@ request(url, (error, response, body) => {
     const resData = JSON.parse(body);
     const characters = resData.characters;
     for (let i = 0; i < characters.length; i++) {
-      request(characters[i], function (error, response, body) {
+      request(characters[i], (error, response, body) => {
         if (!error) {
           console.log(JSON.parse(body).name);
         }
