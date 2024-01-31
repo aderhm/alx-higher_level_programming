@@ -3,10 +3,15 @@ const request = require('request');
 request(process.argv[2], (error, response, body) => {
   if (!error) {
     const resData = JSON.parse(body);
+    const result = {};
     for (let i = 0; i < resData.length; i++) {
       if (resData[i].completed === true) {
-        console.log(resData[i]);
+        if (result[resData[i].userId] === undefined) {
+          result[resData[i].userId] = 0;
+	}
+        result[resData[i].userId]++;
       }
     }
+    console.log(result);
   }
 });
